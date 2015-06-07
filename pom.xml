@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.beeselmane</groupId>
+    <artifactId>cubewars</artifactId>
+    <packaging>pom</packaging>
+    <version>1</version>
+    <url>http://cubition.net/</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>cw-client</module>
+        <module>cw-server</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.cubition</groupId>
+            <artifactId>api</artifactId>
+            <version>0.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Specification-Title>Cube Wars</Specification-Title>
+                            <Specification-Version>${project.version}</Specification-Version>
+                            <Specification-Url>http://cubition.net/</Specification-Url>
+                        </manifestEntries>
+                    </archive>
+
+                    <outputDirectory>../build</outputDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.1</version>
+                <configuration>
+                    <quiet>true</quiet>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <name>Cube Wars</name>
+</project>
